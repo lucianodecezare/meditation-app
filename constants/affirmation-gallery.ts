@@ -1,4 +1,4 @@
-import { AFFIRMATION_IMAGES } from '@/constants/images/';
+import { AFFIRMATION_IMAGES } from '@/constants/images/affirmations';
 
 export const AFFIRMATION_GALLERY = [
   {
