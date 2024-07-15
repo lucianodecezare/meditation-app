@@ -1,18 +1,20 @@
-import { LinearGradient } from 'expo-linear-gradient';
+import beachImage from '@/assets/meditation-images/beach.webp';
+import { CustomButton } from '@/components';
+import { AppGradient } from '@/components/AppGradient';
+import { useRouter } from 'expo-router';
 import { StatusBar } from 'expo-status-bar';
 import React from 'react';
 import { ImageBackground, Platform, SafeAreaView, Text, View, StatusBar as sb } from 'react-native';
 
-import beachImage from '@/assets/meditation-images/beach.webp';
-import { CustomButton } from '@/components';
-
 const App = () => {
+  const router = useRouter();
+
   return (
     <View className="flex-1">
       <StatusBar style="light" />
       <ImageBackground className="flex-1" resizeMode="cover" source={beachImage}>
-        <LinearGradient className="flex-1" colors={['rgba(0, 0, 0, 0.4', 'rgba(0, 0, 0, 0.8']}>
-          <SafeAreaView className="flex-1 mx-5 my-12 justify-between">
+        <AppGradient colors={['rgba(0,0,0,0.4)', 'rgba(0,0,0,0.8)']}>
+          <SafeAreaView className="flex-1 px-1 justify-between">
             <View
               style={{
                 backgroundColor: 'transparent',
@@ -25,10 +27,13 @@ const App = () => {
               </Text>
             </View>
             <View>
-              <CustomButton title="Get Started" onPress={() => console.log('tapped')} />
+              <CustomButton
+                title="Get Started"
+                onPress={() => router.navigate('/nature-meditate')}
+              />
             </View>
           </SafeAreaView>
-        </LinearGradient>
+        </AppGradient>
       </ImageBackground>
     </View>
   );
